@@ -1,0 +1,17 @@
+services:
+
+    classroom-dev-app:
+        container_name: classroom-dev-app
+        build: .
+        volumes:
+            - .:/var/www/html
+        ports:
+            - 9000:80
+
+    mysql_db:
+        image: mysql:latest
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: classroom_dev_app
+        ports:
+            - 3307:3306
